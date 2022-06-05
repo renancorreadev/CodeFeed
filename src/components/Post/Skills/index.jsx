@@ -1,7 +1,7 @@
-import js from '../../assets/images/js.svg';
-import react from '../../assets/images/react.svg';
-import typescript from '../../assets/images/typescript.svg';
-import vtex from '../../assets/images/vtex.svg';
+import js from '../../../assets/images/js.svg';
+import react from '../../../assets/images/react.svg';
+import typescript from '../../../assets/images/typescript.svg';
+import vtex from '../../../assets/images/vtex.svg';
 
 import styles from './Skills.module.css'
 
