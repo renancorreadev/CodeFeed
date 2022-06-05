@@ -1,11 +1,51 @@
+import styles from './Post.module.css';
 
+import {Skills} from '../Skills';
 
-export function Post(props) {
+export function Post() {
 
     return (
-        <>
-            <h2>{props.name}</h2>
-            <p>{props.article}</p>
-        </>
+        <article className={styles.post}> 
+            <header className={styles.headerContainer}> 
+                <div className={styles.author}>
+                    <img className={styles.avatar} src="https://github.com/renancorreadev.png" alt="" />                    
+                </div>
+
+                <div className={styles.leftContainer}>
+                    <div className={styles.authorinfo}>
+                            <span className={styles.name}>Renan Correa</span>
+                            <span className={styles.cargo}>Web Developer</span>
+                        </div>
+                    <time title="11 de maio de 2022" dateTime="2022-05-11 08:13:25">Publicado   há 1 hora.
+                    </time>
+
+                    <Skills/>
+                </div>
+            </header>  
+
+            <div className={styles.content}>
+                <p>Hi, Guys!</p>
+                <p>
+                Lorem labore ipsum anim ullamco deserunt. Minim eiusmod adipisicing dolor consectetur officia sint excepteur. Mollit mollit aliquip exercitation ipsum incididunt minim laboris exercitation nostrud 
+                </p>
+                <div className={styles.link}>
+                    <p >
+                        <a href="#">
+                        🎸 Jane MCAvoy.
+                        </a>
+                    </p>
+                    <p>  
+                        <a href="#">
+                        #new project 
+                        </a>
+                    </p>
+                    <p >
+                        <a href="#">
+                            #skynet.
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </article>
     )
 }
