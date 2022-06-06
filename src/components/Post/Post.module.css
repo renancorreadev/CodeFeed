@@ -37,6 +37,13 @@
     align-items: center;
     justify-content: flex-start;
 }
+@media screen and (max-width: 1023px) {
+    .headerContainer{
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
 .headerContainer time{
     font-size: 0.875rem;
     color: var(--gray-400);
@@ -60,6 +67,14 @@ margin-right: 0.625rem;
     align-items: center;
     margin-left: 1rem;
     gap: 1.5rem;
+}
+@media screen and (max-width: 1023px) {
+    .leftContainer{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1rem;
+    }
 }
 .commentForm{
     width:100%;
