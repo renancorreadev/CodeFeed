@@ -1,6 +1,8 @@
 import styles from './Post.module.css';
 
-import {Skills} from './Skills';
+import { Skills } from './Skills';
+import { Comment } from './Comment';
+import { Avatar } from '../Avatar';
 
 export function Post() {
 
@@ -8,7 +10,7 @@ export function Post() {
         <article className={styles.post}> 
             <header className={styles.headerContainer}> 
                 <div className={styles.author}>
-                    <img className={styles.avatar} src="https://github.com/renancorreadev.png" alt="" />                    
+                <Avatar className={styles.avatar}  src="https://github.com/renancorreadev.png" />
                 </div>
 
                 <div className={styles.leftContainer}>
@@ -59,6 +61,12 @@ export function Post() {
                   <button type="submit" className={styles.button}>Publicar</button>
                 </footer>
             </form>
+
+            <div className={styles.commentList}>
+                <Comment />
+                <Comment />
+                <Comment />
+            </div>
         </article>
     )
 }
