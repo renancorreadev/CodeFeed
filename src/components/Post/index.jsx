@@ -4,22 +4,27 @@ import { Skills } from './Skills';
 import { Comment } from './Comment';
 import { Avatar } from '../Avatar';
 
-export function Post() {
+import {format, formatDistanceToNow} from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+
+export function Post({author, publishedAt, content}) {
+    const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'ás' HH:mm'h'", ptBR);
+    const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {locale: ptBR, addSuffix: true});
 
     return (
         <article className={styles.post}> 
             <header className={styles.headerContainer}> 
                 <div className={styles.author}>
-                <Avatar className={styles.avatar}  src="https://github.com/renancorreadev.png" />
+                <Avatar className={styles.avatar}  src={author.avatarUrl} />
                 </div>
 
                 <div className={styles.leftContainer}>
                     <div className={styles.authorinfo}>
-                        <span className={styles.name}>Renan Correa</span>
+                        <strong className={styles.name}>{author.name}</strong>
                         <span> | </span>
-                            <span className={styles.cargo}>Web Developer</span>
+                            <span className={styles.cargo}>{author.role}</span>
                         </div>
-                    <time title="11 de maio de 2022" dateTime="2022-05-11 08:13:25">Publicado   há 1 hora.
+                    <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}> {publishedDateRelativeToNow}
                     </time>
 
                     <Skills/>
@@ -27,27 +32,19 @@ export function Post() {
             </header>  
 
             <div className={styles.content}>
-                <p>Hi, Guys!</p>
-                <p>
-                Lorem labore ipsum anim ullamco deserunt. Minim eiusmod adipisicing dolor consectetur officia sint excepteur. Mollit mollit aliquip exercitation ipsum incididunt minim laboris exercitation nostrud 
-                </p>
-                <div className={styles.link}>
-                    <p >
-                        <a href="#">
-                        🎸 Jane MCAvoy.
-                        </a>
-                    </p>
-                    <p>  
-                        <a href="#">
-                        #new project 
-                        </a>
-                    </p>
-                    <p >
-                        <a href="#">
-                            #skynet.
-                        </a>
-                    </p>
-                </div>
+                {content.map(item => {
+                    if(item.type === "paragraph") {
+                        return <p>{item.content}</p>
+                    }else if (item.type == "link"){
+                        return (
+                            <p>
+                             <a href="#">
+                              {item.linkContent}
+                             </a>
+                         </p>
+                        )
+                    }
+                })}
             </div>
 
             <form className={styles.commentForm}>

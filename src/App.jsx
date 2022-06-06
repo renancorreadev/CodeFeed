@@ -8,6 +8,50 @@ import { Post } from './components/Post';
 
 function App() {
 
+  const posts = [
+   {
+      id: 1,
+      author: {
+        avatarUrl: "https://github.com/renancorreadev.png",
+        name: "Renan Correa",
+        role: "Desenvolvedor"
+      },
+      content: [
+        {type: "paragraph", content: "Hi Guys!"},
+        {type: "paragraph", content: "Lorem labore ipsum anim ullamco deserunt. Minim eiusmod adipisicing dolor consectetur officia sint excepteur. Mollit mollit aliquip exercitation ipsum incididunt minim laboris exercitation nostrud "},
+        {type: "link", linkContent: "🎸 Jane MCAvoy."},
+      ],
+      publishedAt: new Date('2022-05-03 08:13:25'),
+   },
+   {
+    id: 2,
+    author: {
+      avatarUrl: "https://img.freepik.com/fotos-gratis/mulher-bonita-na-rua_23-2147654236.jpg",
+      name: "Diane Guifreu",
+      role: "Desenvolvedora"
+    },
+    content: [
+      {type: "paragraph", content: "Hi Guys!"},
+      {type: "paragraph", content: "Lorem labore ipsum anim ullamco deserunt. Minim eiusmod adipisicing dolor consectetur officia sint excepteur. Mollit mollit aliquip exercitation ipsum incididunt minim laboris exercitation nostrud "},
+      {type: "link", linkContent: "🎸 Jane MCAvoy."},
+    ],
+    publishedAt: new Date('2022-03-03 08:13:25'),
+   },
+   {
+    id: 3,
+    author: {
+      avatarUrl: "https://blog.unis.edu.br/hubfs/como-esta-o-mercado-para-um-analista-e-desenvolvedor-de-sistemas.png",
+      name: "Anderson Correa",
+      role: "Desenvolvedor"
+    },
+    content: [
+      {type: "paragraph", content: "Hi Guys!"},
+      {type: "paragraph", content: "Lorem labore ipsum anim ullamco deserunt. Minim eiusmod adipisicing dolor consectetur officia sint excepteur. Mollit mollit aliquip exercitation ipsum incididunt minim laboris exercitation nostrud "},
+      {type: "link", linkContent: "🎸 Jane MCAvoy."},
+    ],
+    publishedAt: new Date('2022-05-13 08:13:25'),
+   }
+  ]
   return (
     <div className="App">
       <Header />
@@ -15,14 +59,20 @@ function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post name="Eduardo " article="Minim irure tempor ea do labore amet est. Est cupidatat duis duis Lorem incididunt voluptate consectetur. Occaecat cillum sit cillum et excepteur dolore irure. Elit excepteur et do exercitation quis. Incididunt ea in deserunt sint cupidatat proident sit ex aliqua nisi. Magna commodo eu voluptate aliqua tempor minim ullamco eu sunt in irure ut est. Deserunt irure deserunt sunt nulla exercitation incididunt exercitation fugiat." />
-          <Post name="Luan " article="Minim irure tempor ea do labore amet est. Est cupidatat duis duis Lorem incididunt voluptate consectetur. Occaecat cillum sit cillum et excepteur dolore irure. Elit excepteur et do exercitation quis. Incididunt ea in deserunt sint cupidatat proident sit ex aliqua nisi. Magna commodo eu voluptate aliqua tempor minim ullamco eu sunt in irure ut est. Deserunt irure deserunt sunt nulla exercitation incididunt exercitation fugiat." />
-          <Post name="Monica " article="Minim irure tempor ea do labore amet est. Est cupidatat duis duis Lorem incididunt voluptate consectetur. Occaecat cillum sit cillum et excepteur dolore irure. Elit excepteur et do exercitation quis. Incididunt ea in deserunt sint cupidatat proident sit ex aliqua nisi. Magna commodo eu voluptate aliqua tempor minim ullamco eu sunt in irure ut est. Deserunt irure deserunt sunt nulla exercitation incididunt exercitation fugiat." />
+          {posts.map(post => {
+            return (
+              <Post
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              /> 
+            )
+          })}
         </main>
       </div>
     </div>
   )
 }
 
-export default App
+export default App;
 
