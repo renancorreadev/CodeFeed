@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { ThumbsUp, Trash } from 'phosphor-react';
-import { useState } from 'react';
-import React from 'react';
+import { ThumbsUp, Trash } from "phosphor-react";
+import { useState } from "react";
+import React from "react";
 
-import { Avatar } from '../../Avatar';
-import styles from './Comment.module.css';
+import { Avatar } from "../../Avatar";
+import styles from "./Comment.module.css";
 
 interface CommentProps {
   content: string;
