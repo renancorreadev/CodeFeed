@@ -78,6 +78,7 @@ function App() {
               <Post
                 key={post.id}
                 author={post.author}
+                //@ts-ignore
                 content={post.content}
                 publishedAt={post.publishedAt}
               />

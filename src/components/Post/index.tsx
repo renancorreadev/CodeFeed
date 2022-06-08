@@ -1,37 +1,56 @@
 import styles from './Post.module.css';
-import {useState} from 'react'
+import {useState, FormEvent, ChangeEvent, InvalidEvent} from 'react'
 
 import { Skills } from './Skills';
 import { Comment } from './Comment';
 import { Avatar } from '../Avatar';
 import {Mutant} from './Mutant';
 
-import {format, formatDistanceToNow} from 'date-fns';
+import{format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
-export function Post({author, publishedAt, content}) {
+
+interface Author {
+    name: string;
+    role: string;
+    avatarUrl: string;
+}
+
+interface PostProps{
+    author: Author;
+    publishedAt: Date;
+    content: Content[];
+}
+
+interface Content {
+    type: 'paragraph' | 'link' | 'mutant' | 'linkContent';
+    content: string;
+}
+
+export function Post({author, publishedAt, content}: PostProps) {
+    //@ts-ignore
     const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'ás' HH:mm'h'", ptBR);
     const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {locale: ptBR, addSuffix: true});
     const [comments, setComments] = useState(['Post Fantástico!!']);
     const [newComment, setNewComment] = useState('');
  
-    const handleCreateNewComment = () => {
+    const handleCreateNewComment = (event: FormEvent) => {
         event.preventDefault();
         setComments([...comments, newComment]);
         setNewComment(''); //limpar o input
     }
-    const commentToDelete = (commentDelete) =>{ 
+    const commentToDelete = (commentDelete: string) =>{ 
     //Deletar comentario.
        const commentWithoutLast = comments.filter(comment => {
              return comment !== commentDelete;
        })
         setComments(commentWithoutLast);
     }
-    const handleNewCommentChange = () => {
+    const handleNewCommentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
         event.target.setCustomValidity('');
         setNewComment(event.target.value) 
      }
-    const handleNewCommentInvalid = () => {
+    const handleNewCommentInvalid = (event: InvalidEvent<HTMLTextAreaElement>) => {
         event.target.setCustomValidity('Esse campo é Obrigatório!');
     }
 
@@ -65,7 +84,7 @@ export function Post({author, publishedAt, content}) {
                         return (
                             <p key={item.content}>
                              <a href="#">
-                              {item.linkContent}
+                              {item.content}
                              </a>
                          </p>
                         )
@@ -104,8 +123,9 @@ export function Post({author, publishedAt, content}) {
                     if(item.type === "mutant") {
                         return (
                             <Mutant
-                            key={item.content} 
-                            mutant={item.content}
+                                key={item.content}
+                                mutant={item.content} 
+                                content={item.content}
                             />
                         )
                     }

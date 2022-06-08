@@ -3,7 +3,12 @@ import ninja1 from '../../../assets/images/ninja1.svg';
 import ninja2 from '../../../assets/images/ninja2.svg';
 import ninja3 from '../../../assets/images/ninja3.svg';
 
-export function Mutant({mutant, content}) {
+interface MutantProps{
+    mutant: string;
+    content: string;
+}
+
+export function Mutant({mutant, content} : MutantProps) {
     
     const verifyMutant = () => {
         if(mutant === "Senior"){
