@@ -14,9 +14,7 @@ export function Post({author, publishedAt, content}) {
     const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {locale: ptBR, addSuffix: true});
     const [comments, setComments] = useState(['Post Fantástico!!']);
     const [newComment, setNewComment] = useState('');
-    const handleNewCommentChange = () => {
-       setNewComment(event.target.value) 
-    }
+ 
     const handleCreateNewComment = () => {
         event.preventDefault();
         setComments([...comments, newComment]);
@@ -29,7 +27,15 @@ export function Post({author, publishedAt, content}) {
        })
         setComments(commentWithoutLast);
     }
+    const handleNewCommentChange = () => {
+        event.target.setCustomValidity('');
+        setNewComment(event.target.value) 
+     }
+    const handleNewCommentInvalid = () => {
+        event.target.setCustomValidity('Esse campo é Obrigatório!');
+    }
 
+    const isNewCommentEmpty = !newComment;
 
     return (
         <article className={styles.post}> 
@@ -77,11 +83,19 @@ export function Post({author, publishedAt, content}) {
                     className={styles.textarea} 
                     placeholder="Deixe seu Comentario" 
                     onChange={handleNewCommentChange}
+                    onInvalid={handleNewCommentInvalid}
                     value={newComment}
+                    required
                 />
 
                 <footer>
-                  <button type="submit" className={styles.button}>Publicar</button>
+                  <button 
+                    type="submit" 
+                    className={styles.button}
+                    disabled={isNewCommentEmpty}
+                    >
+                        Publicar
+                 </button>
                 </footer>
             </form>
 
