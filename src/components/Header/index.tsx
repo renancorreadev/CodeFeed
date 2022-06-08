@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import logo from '../../assets/images/logo.svg';
-import styles from './Header.module.css';
+import logo from "../../assets/images/logo.svg";
+import styles from "./Header.module.css";
 
 export function Header() {
   return (

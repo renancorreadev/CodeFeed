@@ -65,6 +65,6 @@
   margin-right: 0.5rem;
 }
 .commentBox footer button span:before {
-  content: '\2022';
+  content: "\2022";
   padding: 0 0.4rem;
 }

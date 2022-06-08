@@ -28,7 +28,7 @@
 .content:after {
   --m-i: linear-gradient(#000, #000);
   --m-o: content-box, padding-box;
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
