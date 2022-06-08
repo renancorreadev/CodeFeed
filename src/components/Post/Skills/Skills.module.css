@@ -1,16 +1,16 @@
-.container{
-    display: flex;
-    align-items: center;
-  
+.container {
+  display: flex;
+  align-items: center;
 }
 
-.items_1 img, .items_2 img{
-    width: 28px;
-    height: auto;
-    object-fit: cover;
-    margin: 0.356rem;
+.items_1 img,
+.items_2 img {
+  width: 28px;
+  height: auto;
+  object-fit: cover;
+  margin: 0.356rem;
 }
 
-.items_2 img:last-child{
-    width: 80px;
+.items_2 img:last-child {
+  width: 80px;
 }

@@ -1,134 +1,133 @@
-.post{
-    background: var(--gray-800);
-    border-radius: 8px;
-    padding: 2.5rem; 
+.post {
+  background: var(--gray-800);
+  border-radius: 8px;
+  padding: 2.5rem;
 }
-.post + .post { /* apenas o primeiro post */
-    margin-top: 2rem;
+.post + .post {
+  /* apenas o primeiro post */
+  margin-top: 2rem;
 }
 
 .content {
-    line-height: 1.6;
-    color: var(--gray-300);
-    margin-top: 1.5rem;
+  line-height: 1.6;
+  color: var(--gray-300);
+  margin-top: 1.5rem;
 }
-.content p{
-    margin-top: 1rem;
+.content p {
+  margin-top: 1rem;
 }
 
 .content a {
-    font-weight: bold;
-    color: var(--gray-500);
-    text-decoration: none;
-    transition: color 0.3s;
+  font-weight: bold;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.3s;
 }
-.content a:hover{
-    color: var( --green-300);
+.content a:hover {
+  color: var(--green-300);
 }
-.link{
-    display: flex;
+.link {
+  display: flex;
 }
-.link a{
-    margin-right: 1rem;
+.link a {
+  margin-right: 1rem;
 }
 
-.headerContainer{
-    display: flex;
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+@media screen and (max-width: 1023px) {
+  .headerContainer {
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+  }
 }
-@media screen and (max-width: 1023px) {
-    .headerContainer{
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-    }
-}
-.headerContainer time{
-    font-size: 0.875rem;
-    color: var(--gray-400);
+.headerContainer time {
+  font-size: 0.875rem;
+  color: var(--gray-400);
 }
 
-.author{
-    display: flex;
-    gap: 1rem;
+.author {
+  display: flex;
+  gap: 1rem;
 }
 .authorinfo {
-    font-size: 0.875rem;
-    color: var(--gray-400);
-    line-height: 1.6; 
+  font-size: 0.875rem;
+  color: var(--gray-400);
+  line-height: 1.6;
 }
 .authorinfo span {
-margin-right: 0.625rem;
+  margin-right: 0.625rem;
 }
 
-.leftContainer{
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
-    gap: 1.5rem;
+.leftContainer {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  gap: 1.5rem;
 }
 @media screen and (max-width: 1023px) {
-    .leftContainer{
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 1rem;
-    }
-}
-.commentForm{
-    width:100%;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--gray-600);
-
-    display: flex;
+  .leftContainer {
     flex-direction: column;
-}
-.textarea{
-    background-color: var(--gray-900);
-    line-height: 1.6;
-    border: 0;
-    resize: none;
-    height: 6rem;
-    padding: 1rem;
-    border-radius: 8px;
-    color: var(--gray-100);
-    line-height: 1.4;
-    margin-top: 1rem; 
-}
-.commentForm button[type="submit"]{
-    width: 160px;
-    padding: 1rem 1.5rem;
+    align-items: center;
+    justify-content: center;
     margin-top: 1rem;
-    border-radius: 8px;
-    border: 0;
-    background-color: var(--green-500);
-    color: var(--white);
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  }
+}
+.commentForm {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-600);
 
-
+  display: flex;
+  flex-direction: column;
+}
+.textarea {
+  background-color: var(--gray-900);
+  line-height: 1.6;
+  border: 0;
+  resize: none;
+  height: 6rem;
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--gray-100);
+  line-height: 1.4;
+  margin-top: 1rem;
+}
+.commentForm button[type='submit'] {
+  width: 160px;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 0;
+  background-color: var(--green-500);
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 /* So funciona caso o botao nao esteja em disable... */
-.commentForm button[type="submit"]:not(:disabled):hover{
-    background-color: var(--green-300);
+.commentForm button[type='submit']:not(:disabled):hover {
+  background-color: var(--green-300);
 }
-.commentForm button[type="submit"]:disabled{
-   opacity: 0.7;
-   cursor: not-allowed;
+.commentForm button[type='submit']:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
-.commentForm footer{
-    visibility: hidden;
-    max-height: 0px;
+.commentForm footer {
+  visibility: hidden;
+  max-height: 0px;
 }
 .commentForm:focus-within footer {
-    visibility: visible;
-    max-height: none;
+  visibility: visible;
+  max-height: none;
 }
 
-.commentList{
-    margin-top: 2rem;
+.commentList {
+  margin-top: 2rem;
 }
