@@ -22,9 +22,12 @@ export function Post({author, publishedAt, content}) {
         setComments([...comments, newComment]);
         setNewComment(''); //limpar o input
     }
-
-    const commentToDelete = (comment) =>{ 
-        console.log(`deletar comment? ${comment}`);
+    const commentToDelete = (commentDelete) =>{ 
+    //Deletar comentario.
+       const commentWithoutLast = comments.filter(comment => {
+             return comment !== commentDelete;
+       })
+        setComments(commentWithoutLast);
     }
 
 
@@ -97,7 +100,7 @@ export function Post({author, publishedAt, content}) {
 
             <div className={styles.commentList}>
                 {comments?.map(comment => {
-                    return <Comment key={comment} content={comment} commentToDelete={commentToDelete}/>
+                    return <Comment key={comment} content={comment} onDeleteComment={commentToDelete}/>
                 })}
             </div>
         </article>
