@@ -1,8 +1,8 @@
-import { Header } from "./components/Header.jsx";
+import { Header } from "./components/Header";
 import "./styles/global.css";
 import styles from "./App.module.css";
-import { Post } from "./components/Post.jsx";
-import { Sidebar } from "./components/Sidebar.jsx";
+import { Post } from "./components/Post";
+import { Sidebar } from "./components/Sidebar";
 
 function App() {
   const posts = [
@@ -14,6 +14,7 @@ function App() {
         role: "Desenvolvedor",
       },
       content: [
+        {type: "mutant", content: "Senior" },
         { type: "paragraph", content: "Hi Guys!" },
         {
           type: "paragraph",
@@ -33,6 +34,7 @@ function App() {
         role: "Desenvolvedora",
       },
       content: [
+        {type: "mutant", content: "Junior" },
         { type: "paragraph", content: "Hi Guys!" },
         {
           type: "paragraph",
@@ -52,6 +54,7 @@ function App() {
         role: "Desenvolvedor",
       },
       content: [
+        {type: "mutant", content: "Mestre" },
         { type: "paragraph", content: "Hi Guys!" },
         {
           type: "paragraph",

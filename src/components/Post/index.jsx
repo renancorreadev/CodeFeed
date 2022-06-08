@@ -4,6 +4,7 @@ import {useState} from 'react'
 import { Skills } from './Skills';
 import { Comment } from './Comment';
 import { Avatar } from '../Avatar';
+import {Mutant} from './Mutant';
 
 import {format, formatDistanceToNow} from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
@@ -20,6 +21,10 @@ export function Post({author, publishedAt, content}) {
         event.preventDefault();
         setComments([...comments, newComment]);
         setNewComment(''); //limpar o input
+    }
+
+    const commentToDelete = (comment) =>{ 
+        console.log(`deletar comment? ${comment}`);
     }
 
 
@@ -77,9 +82,22 @@ export function Post({author, publishedAt, content}) {
                 </footer>
             </form>
 
+            <div className={styles.Mutantcontainer}>
+                {content.map?.(item => {
+                    if(item.type === "mutant") {
+                        return (
+                            <Mutant
+                            key={item.content} 
+                            mutant={item.content}
+                            />
+                        )
+                    }
+                })}
+            </div>
+
             <div className={styles.commentList}>
                 {comments?.map(comment => {
-                    return <Comment key={comment} content={comment}/>
+                    return <Comment key={comment} content={comment} commentToDelete={commentToDelete}/>
                 })}
             </div>
         </article>

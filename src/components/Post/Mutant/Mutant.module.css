@@ -1,0 +1,88 @@
+.Mutantcontainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1.6rem;
+}
+@media screen and (max-width: 1023px){
+    .Mutantcontainer{
+        justify-content: center;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    --border-radius: 15px;
+    --border-width: 1px;
+    appearance: none;
+    position: relative;
+    background: rgb(34 34 37);
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    z-index: 2;
+    border-radius: 15px;
+}
+.content:after{
+    --m-i: linear-gradient(#000, #000);
+    --m-o: content-box, padding-box;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: var(--border-width);
+    border-radius: var(--border-radius);
+    background-image: conic-gradient(
+            #488cfb,
+            #29dbbc,
+            #ddf505,
+            #ff9f0e,
+            #e440bb,
+            #655adc,
+            #488cfb
+        );
+    -webkit-mask-image: var(--m-i), var(--m-i);
+    mask-image: var(--m-i), var(--m-i);
+    -webkit-mask-origin: var(--m-o);
+    mask-origin: var(--m-o);
+    -webkit-mask-clip: var(--m-o);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    filter: hue-rotate(0);
+    animation: rotate-hue linear 500ms infinite;
+    animation-play-state: paused;
+}
+
+@keyframes rotate-hue {
+    to {
+     filter: hue-rotate(1turn);
+    }
+   }
+   
+   .content,
+   .content::after {
+    box-sizing: border-box;
+   }
+   
+   .content:active {
+    --border-width: 5px;
+   }
+
+.content:hover:after{
+    animation-play-state: running;
+}
+
+.Mutantcontainer :first-child{
+    padding: 0 1rem;
+    
+}
+.mutant{
+    width: 38px;
+    height: auto;
+    margin: 1rem;
+}
+
