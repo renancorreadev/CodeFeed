@@ -11,11 +11,8 @@ import ptBR from 'date-fns/locale/pt-BR';
 export function Post({author, publishedAt, content}) {
     const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'ás' HH:mm'h'", ptBR);
     const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {locale: ptBR, addSuffix: true});
-    const [comments, setComments] = useState([
-        'Post Fantástico!!'
-    ]);
+    const [comments, setComments] = useState(['Post Fantástico!!']);
     const [newComment, setNewComment] = useState('');
-
     const handleNewCommentChange = () => {
        setNewComment(event.target.value) 
     }
@@ -49,10 +46,10 @@ export function Post({author, publishedAt, content}) {
             <div className={styles.content}>
                 {content.map(item => {
                     if(item.type === "paragraph") {
-                        return <p>{item.content}</p>
+                        return <p key={item.content}>{item.content}</p>
                     }else if (item.type == "link"){
                         return (
-                            <p>
+                            <p key={item.content}>
                              <a href="#">
                               {item.linkContent}
                              </a>
@@ -82,7 +79,7 @@ export function Post({author, publishedAt, content}) {
 
             <div className={styles.commentList}>
                 {comments?.map(comment => {
-                    return <Comment content={comment}/>
+                    return <Comment key={comment} content={comment}/>
                 })}
             </div>
         </article>
